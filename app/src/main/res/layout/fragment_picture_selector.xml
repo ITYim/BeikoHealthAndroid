@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.yim.base.widget.StatusBarView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/fileSelectBar"/>
+
+    <com.alensic.beikohealth.widget.TitleBarView
+        android:id="@+id/tbv_pic_select"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/TitleBarHeight"
+        app:leftDrawable="@drawable/icon_back"
+        app:tBackground="@color/fileSelectBar"
+        app:rightTextColor="@color/white"
+        app:titleTextColor="@color/white"
+        app:titleText="选择图片"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_pictures"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        app:layoutManager="@string/GridLayoutManager"
+        app:spanCount="4"
+        android:paddingLeft="2dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="12dp"
+        android:background="@color/fileSelectBar">
+
+        <TextView
+            android:id="@+id/tv_change_picture_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white_press_to_press_selector"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="全部图片∨"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:textColor="@color/white"
+            android:background="@color/main_theme_press"
+            android:textSize="12sp"
+            android:text="@string/confirm"/>
+
+    </LinearLayout>
+
+</LinearLayout>

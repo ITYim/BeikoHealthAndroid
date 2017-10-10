@@ -1,0 +1,29 @@
+//在全局配置里加入apply from: 'config.gradle' 用于多个module共用配置引用
+
+ext {
+    supportLibVersion = '25.0.0'
+    dependencies = [
+            'SupportV4'               : "com.android.support:support-v4:${supportLibVersion}",
+            'SupportV7'               : "com.android.support:appcompat-v7:${supportLibVersion}",
+            'RecyclerView'            : "com.android.support:recyclerview-v7:${supportLibVersion}",
+            'CardView'                : "com.android.support:cardview-v7:${supportLibVersion}",
+            'Design'                  : "com.android.support:design:${supportLibVersion}",
+            'SwipeBackHelper'         : 'com.jude:swipebackhelper:3.1.2',
+            'RxJava'                  : 'io.reactivex:rxjava:1.1.7',
+            'RxAndroid'               : 'io.reactivex:rxandroid:1.2.1',
+            'Retrofit'                : 'com.squareup.retrofit2:retrofit:2.1.0',
+            'GsonConverter'           : 'com.squareup.retrofit2:converter-gson:2.1.0',
+            'RxjavaAdapter'           : 'com.squareup.retrofit2:adapter-rxjava:2.1.0',
+            'OkHttpLoggingInterceptor': 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+            'Glide'                   : 'com.github.bumptech.glide:glide:3.7.0',
+            'Bugly'                   : 'com.tencent.bugly:crashreport:2.6.0',
+            'EventBus'                : 'org.greenrobot:eventbus:3.0.0',
+            'WeChat'                  : 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.1.6',
+            'JPush'                   : 'cn.jiguang.sdk:jpush:3.0.3',
+            'JPushCore'               : 'cn.jiguang.sdk:jcore:1.1.1',
+            'GreenDao'                : 'org.greenrobot:greendao:3.2.2',
+            'Gson'                    : 'com.google.code.gson:gson:2.8.1',
+            'ButterKnife'             : 'com.jakewharton:butterknife:8.8.1',
+            'ButterKnifeCompiler'     : 'com.jakewharton:butterknife-compiler:8.8.1'
+    ]
+}

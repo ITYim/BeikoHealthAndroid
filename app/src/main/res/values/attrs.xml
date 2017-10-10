@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 标题控件 -->
+    <declare-styleable name="TitleBarView" >
+        <!-- 标题文本 -->
+        <attr name="titleText" format="string"/>
+        <!-- 标题文本颜色 -->
+        <attr name="titleTextColor" format="color"/>
+        <!-- 左边的文本 -->
+        <attr name="leftText" format="string"/>
+        <!-- 左边的文本颜色 -->
+        <attr name="leftTextColor" format="color"/>
+        <!-- 右边文本 -->
+        <attr name="rightText" format="string"/>
+        <!-- 右边文本颜色 -->
+        <attr name="rightTextColor" format="color"/>
+        <!-- 左侧图标 -->
+        <attr name="leftDrawable" format="reference"/>
+        <!-- 右侧图标 -->
+        <attr name="rightDrawable" format="reference"/>
+        <!-- 背景 -->
+        <attr name="tBackground" format="reference"/>
+
+    </declare-styleable>
+
+</resources>

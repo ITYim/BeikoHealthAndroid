@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">倍可健康</string>
+    <string name="app_name_debug">倍可健康-测试</string>
+
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="back">返回</string>
+    <string name="close">关闭</string>
+    <string name="NoLongerTips">不再提示</string>
+    <string name="PhoneNumber">手机号码</string>
+    <string name="AuthCode">验证码</string>
+    <string name="login">登录</string>
+    <string name="LinearLayoutManager">LinearLayoutManager</string>
+    <string name="GridLayoutManager">GridLayoutManager</string>
+    <string name="MainHomeTab">主页</string>
+    <string name="MainDoctorTab">医生</string>
+    <string name="MainClassroomTab">课堂</string>
+    <string name="MainMineTab">我的</string>
+</resources>

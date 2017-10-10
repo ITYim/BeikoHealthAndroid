@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/rl_root"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="close"
+        android:text="close"/>
+
+    <EditText
+        android:id="@+id/et_phone_input"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/LoginActivityLeftRightPadding"
+        android:layout_marginRight="@dimen/LoginActivityLeftRightPadding"
+        android:layout_marginTop="150dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/PhoneNumber"
+        android:inputType="number"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:textSize="15sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@id/et_phone_input"
+        android:layout_alignRight="@id/et_phone_input"
+        android:layout_below="@id/et_phone_input"
+        android:background="@color/line"/>
+
+    <com.alensic.beikohealth.widget.AuthCodeButton
+        android:id="@+id/acb_auth_code"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignRight="@id/et_phone_input"
+        android:layout_below="@id/et_phone_input"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="发送验证码"/>
+
+    <EditText
+        android:id="@+id/et_auth_code"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@id/et_phone_input"
+        android:layout_below="@id/et_phone_input"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@id/acb_auth_code"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/AuthCode"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textSize="15sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@id/et_phone_input"
+        android:layout_alignRight="@id/et_phone_input"
+        android:layout_below="@id/et_auth_code"
+        android:background="@color/line"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/acb_auth_code"
+        android:layout_marginLeft="@dimen/LoginActivityLeftRightPadding"
+        android:layout_marginRight="@dimen/LoginActivityLeftRightPadding"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_green_border_white_solid_selector"
+        android:text="@string/login"
+        android:textColor="@color/main_press_to_white_selector"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_treaty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/btn_login"
+        android:layout_alignRight="@id/btn_login"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:text="点击登录即表示已阅读并接受《用户服务协议》"
+        android:textColor="@color/gray"
+        android:textSize="12sp"/>
+
+
+    <Button
+        android:id="@+id/btn_wechat_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="微信帐号登录"/>
+
+</RelativeLayout>

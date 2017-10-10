@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.jakewharton.butterknife'
+
+// ../config.properties:  ..表示上一级目录
+def configProperties = file("../config.properties")
+def configProp = new Properties()
+configProp.load(new FileInputStream(configProperties))
+def urlProperties = file("../urlInfo.properties")
+def urlProp = new Properties()
+urlProp.load(new FileInputStream(urlProperties))
+
+android {
+    signingConfigs {
+        BeikoSign {
+            keyAlias configProp["KEY_ALIAS"]
+            keyPassword configProp["KEY_PASSWORD"]
+            storeFile file(configProp["STORE_FILE"])
+            storePassword configProp["STORE_PASSWORD"]
+        }
+    }
+
+    compileSdkVersion configProp["COMPILE_SDK_VERSION"] as int
+    buildToolsVersion configProp["BUILD_TOOLS_VERSION"]
+    defaultConfig {
+        applicationId configProp["APPLICATION_ID"]
+        minSdkVersion configProp["MIN_SDK_VERSION"] as int
+        targetSdkVersion configProp["TARGET_SDK_VERSION"] as int
+        versionCode configProp["VERSION_CODE"] as int
+        versionName configProp["VERSION_NAME"]
+        ndk {
+            //APP的build.gradle设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86', 'armeabi-v8a', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "${JPUSH_APPKEY}", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", urlProp["RELEASE_BASE_URL"]
+            buildConfigField "String", "WX_APPID", "\"${WXAPPID}\""
+            resValue "string", "jpush", "${JPUSH_APPKEY}"
+            resValue "string", "buglyAppId", "${BUGLY_APPID_RELEASE}"
+            resValue "string", "buglyVersion", configProp["VERSION_NAME"]
+            resValue "string", "buglyDebug", "false"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+            signingConfig signingConfigs.BeikoSign
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", urlProp["DEBUG_BASE_URL"]
+            buildConfigField "String", "WX_APPID", "\"${WXAPPID}\""
+            resValue "string", "jpush", "${JPUSH_APPKEY}"
+            resValue "string", "buglyAppId", "${BUGLY_APPID_DEBUG}"
+            resValue "string", "buglyVersion", configProp["VERSION_NAME"]
+            resValue "string", "buglyDebug", "true"
+            manifestPlaceholders = [APP_NAME: "@string/app_name_debug"]
+            signingConfig signingConfigs.BeikoSign
+        }
+    }
+    /**
+     * 修改生成的apk名
+     */
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 构建类型名称
+                def buildTypeName = "${variant.buildType.name}";
+                if (buildTypeName.equalsIgnoreCase("debug")) {
+                    def fileName = "beiko_" + buildTypeName + "_V${defaultConfig.versionName}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                    //输出apk在app/build/outputs/apk/目录下
+                } else {
+                    def rootP = configProp["BUILD_APK_PATH"]
+                    if (rootP == null || rootP == "") {
+                        rootP = rootDir.path + "\\app\\"
+                    }
+                    if (!rootP.endsWith("//")) {
+                        rootP = rootP + "//"
+                    }
+                    def fileName = rootP + "beiko_" + buildTypeName + "_V${defaultConfig.versionName}_" + "${new Date().format("yyyyMMdd_HHmm")}.apk"
+                    output.outputFile = new File(fileName)
+                }
+            }
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/main/java/te']
+        }
+    }
+}
+
+greendao {
+    // 指定数据库版本号，更新操作会用到;
+    schemaVersion 1
+    // 自动生成的dao的包名，包名默认是entity所在的包；
+    daoPackage 'com.alensic.beikohealth.db.gen'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'//arr文件目录地址
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile rootProject.ext.dependencies["RecyclerView"]
+    compile rootProject.ext.dependencies["CardView"]
+    compile rootProject.ext.dependencies["Design"]
+    compile rootProject.ext.dependencies["Bugly"]
+    compile rootProject.ext.dependencies["EventBus"]
+    compile rootProject.ext.dependencies["WeChat"]
+    compile rootProject.ext.dependencies["JPush"]
+    compile rootProject.ext.dependencies["JPushCore"]
+    compile rootProject.ext.dependencies["GreenDao"]
+    annotationProcessor rootProject.ext.dependencies["ButterKnifeCompiler"]
+    compile rootProject.ext.dependencies["ButterKnife"]
+    debugCompile project(path: ':base', configuration: 'debug')
+    releaseCompile project(path: ':base', configuration: 'release')
+    compile project(':IMKit')
+}

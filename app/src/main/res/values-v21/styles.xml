@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="elevation1"><item name="android:elevation">1dp</item></style>
+    <style name="elevation2"><item name="android:elevation">2dp</item></style>
+    <style name="elevation3"><item name="android:elevation">3dp</item></style>
+    <style name="elevation4"><item name="android:elevation">4dp</item></style>
+    <style name="elevation5"><item name="android:elevation">5dp</item></style>
+    <style name="elevation6"><item name="android:elevation">6dp</item></style>
+    <style name="elevation7"><item name="android:elevation">7dp</item></style>
+    <style name="elevation8"><item name="android:elevation">8dp</item></style>
+    <style name="elevation9"><item name="android:elevation">9dp</item></style>
+    <style name="elevation10"><item name="android:elevation">10dp</item></style>
+    <style name="elevation11"><item name="android:elevation">11dp</item></style>
+    <style name="elevation12"><item name="android:elevation">12dp</item></style>
+    <style name="elevation13"><item name="android:elevation">13dp</item></style>
+    <style name="elevation14"><item name="android:elevation">14dp</item></style>
+    <style name="elevation15"><item name="android:elevation">15dp</item></style>
+    <style name="elevation16"><item name="android:elevation">16dp</item></style>
+    <style name="elevation17"><item name="android:elevation">17dp</item></style>
+    <style name="elevation18"><item name="android:elevation">18dp</item></style>
+    <style name="elevation19"><item name="android:elevation">19dp</item></style>
+    <style name="elevation20"><item name="android:elevation">20dp</item></style>
+    <style name="elevation21"><item name="android:elevation">21dp</item></style>
+    <style name="elevation22"><item name="android:elevation">22dp</item></style>
+    <style name="elevation23"><item name="android:elevation">23dp</item></style>
+    <style name="elevation24"><item name="android:elevation">24dp</item></style>
+    <style name="elevation25"><item name="android:elevation">25dp</item></style>
+    <style name="elevation26"><item name="android:elevation">26dp</item></style>
+    <style name="elevation27"><item name="android:elevation">27dp</item></style>
+    <style name="elevation28"><item name="android:elevation">28dp</item></style>
+    <style name="elevation29"><item name="android:elevation">29dp</item></style>
+    <style name="elevation30"><item name="android:elevation">30dp</item></style>
+
+</resources>

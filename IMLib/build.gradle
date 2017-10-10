@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+// ../config.properties:  ..表示上一级目录
+def configProperties = file("../config.properties")
+def configProp = new Properties()
+configProp.load(new FileInputStream(configProperties))
+
+android {
+    compileSdkVersion configProp["COMPILE_SDK_VERSION"] as int
+    buildToolsVersion configProp["BUILD_TOOLS_VERSION"]
+    defaultConfig {
+        minSdkVersion configProp["MIN_SDK_VERSION"] as int
+        targetSdkVersion configProp["TARGET_SDK_VERSION"] as int
+        versionCode configProp["VERSION_CODE"] as int
+        versionName '2.8.16'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "RONG_CLOUD_APP_KEY", "${RONG_CLOUD_APP_KEY}"
+            resValue "string", "RONG_CLOUD_APP_SECRET", "${RONG_CLOUD_APP_SECRET}"
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "RONG_CLOUD_APP_KEY", "${RONG_CLOUD_APP_KEY}"
+            resValue "string", "RONG_CLOUD_APP_SECRET", "${RONG_CLOUD_APP_SECRET}"
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs = ['res']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}

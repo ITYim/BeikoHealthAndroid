@@ -1,0 +1,85 @@
+<resources>
+    <style name="MyDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogBottomInOutAnim">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_to_bottom</item>
+    </style>
+
+    <style name="MainTabLayoutStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="MainTabTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MainTabImageViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+
+    <style name="MainTabUnreadCountViewStyle">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:background">@drawable/red_circle_bg_shape</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">7sp</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="MainTabUnreadTipStyle">
+        <item name="android:layout_width">5dp</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:background">@drawable/red_circle_bg_shape</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="elevation1"/>
+    <style name="elevation2"/>
+    <style name="elevation3"/>
+    <style name="elevation4"/>
+    <style name="elevation5"/>
+    <style name="elevation6"/>
+    <style name="elevation7"/>
+    <style name="elevation8"/>
+    <style name="elevation9"/>
+    <style name="elevation10"/>
+    <style name="elevation11"/>
+    <style name="elevation12"/>
+    <style name="elevation13"/>
+    <style name="elevation14"/>
+    <style name="elevation15"/>
+    <style name="elevation16"/>
+    <style name="elevation17"/>
+    <style name="elevation18"/>
+    <style name="elevation19"/>
+    <style name="elevation20"/>
+    <style name="elevation21"/>
+    <style name="elevation22"/>
+    <style name="elevation23"/>
+    <style name="elevation24"/>
+    <style name="elevation25"/>
+    <style name="elevation26"/>
+    <style name="elevation27"/>
+    <style name="elevation28"/>
+    <style name="elevation29"/>
+    <style name="elevation30"/>
+
+</resources>
